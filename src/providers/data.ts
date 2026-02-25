@@ -9,7 +9,7 @@ const options: CreateDataProviderOptions = {
             const page = pagination?.currentPage ?? 1;
             const pageSize = pagination?.pageSize ?? 10;
             const params : Record<string, string|number> = { page, limit: pageSize };
-            filters?.filter((filter) => {
+            filters?.forEach((filter) => {
                 const field = 'field' in filter ? filter.field : '';
                 const value =  String(filter.value);
                 if( resource === 'subjects'){
